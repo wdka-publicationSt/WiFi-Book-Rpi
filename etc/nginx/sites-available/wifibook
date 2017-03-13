@@ -1,0 +1,19 @@
+
+server {
+	root /var/www/wifibook;
+	index index.html index.htm;
+
+	listen 80;	
+	listen 443 ssl;
+	server_name _;
+
+	rewrite .* /redirected.html;
+	rewrite https.* /redirected.html;
+
+
+	location / {
+		try_files $uri $uri/ /index.html;
+	}
+
+
+}
