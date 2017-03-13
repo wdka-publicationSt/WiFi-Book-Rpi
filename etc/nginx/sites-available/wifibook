@@ -3,13 +3,13 @@ server {
 	root /var/www/wifibook;
 	index index.html index.htm;
 
-	listen 80;	
-	listen 443 ssl;
-	server_name _;
+	listen 80;
+	
+	server_name _;# WifiBook; #_
+	server_name_in_redirect on;
 
-	rewrite .* /redirected.html;
-	rewrite https.* /redirected.html;
-
+#	rewrite .* http://10.1.0.1/index.html redirect;
+#	    rewrite ^/$ http://www.domain2.com redirect;
 
 	location / {
 		try_files $uri $uri/ /index.html;
